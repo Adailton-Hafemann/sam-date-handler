@@ -1,0 +1,27 @@
+{
+  "name": "sam-date-handler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adailton-Hafemann/sam-date-handler.git"
+  },
+  "keywords": [
+    "senior",
+    "sam",
+    "date"
+  ],
+  "author": "Adailton Hafemann",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Adailton-Hafemann/sam-date-handler/issues"
+  },
+  "homepage": "https://github.com/Adailton-Hafemann/sam-date-handler#readme",
+  "dependencies": {
+    "moment": "^2.18.1"
+  }
+}
