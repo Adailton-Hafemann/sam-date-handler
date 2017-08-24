@@ -8,6 +8,7 @@ module.exports = {
     },
     output: {
         library: "SamDateHandler",
+        libraryExport: "SamDateHandler",
         libraryTarget: "umd",
         filename: "index.js",
         path: path.join(ROOT_PATH, "build")
