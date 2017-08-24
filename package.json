@@ -3,6 +3,7 @@
   "version": "1.0.10",
   "description": "",
   "main": "build/index.js",
+  "module": "src/index.js",
   "scripts": {
     "build": "rm -rdf ./build && mkdir build && npm install && webpack --progress --display-error-details"
   },
@@ -27,7 +28,6 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",

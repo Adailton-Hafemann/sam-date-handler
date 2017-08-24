@@ -13,6 +13,7 @@ module.exports = {
         filename: "index.js",
         path: path.join(ROOT_PATH, "build")
     },
+    externals: ["moment"],
     module: {
         rules: rules()
     },

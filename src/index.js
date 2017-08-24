@@ -1,8 +1,6 @@
 import moment from "moment";
 
-export default { convertDateToNewDate, newDateWithGMT };
-
-function convertDateToNewDate(date) {
+export function convertDateToNewDate(date) {
     var offset = moment(date);
     var momentDate = moment(date).utcOffset(offset._tzm);
     return new Date(
@@ -13,6 +11,22 @@ function convertDateToNewDate(date) {
         momentDate.get("minute"),
         momentDate.get("second")
     );
+}
+
+export function newDateWithGMT(offset, date, localTimeZone) {
+    var dateOffset = moment(date).format();
+    if (localTimeZone) {
+        offset = applyDayLightSaving(date, offset, localTimeZone);
+    }
+    var timeZoneHours = parseInt(offset / 60);
+    var timeZoneMinute = Math.abs(offset % 60);
+    var sinal = "-";
+    if (timeZoneHours >= 0) {
+        sinal = "+";
+    }
+    var minute = convertTimeZineToGMTMinute(timeZoneMinute);
+    var hour = convertTimeZineToGMTHour(timeZoneHours);
+    return dateOffset.substring(0, 19) + sinal + hour + ":" + minute;
 }
 
 function applyDayLightSaving(date, offset, localTimeZone) {
@@ -33,22 +47,6 @@ function applyDayLightSaving(date, offset, localTimeZone) {
         }
     }
     return offset;
-}
-
-function newDateWithGMT(offset, date, localTimeZone) {
-    var dateOffset = moment(date).format();
-    if (localTimeZone) {
-        offset = applyDayLightSaving(date, offset, localTimeZone);
-    }
-    var timeZoneHours = parseInt(offset / 60);
-    var timeZoneMinute = Math.abs(offset % 60);
-    var sinal = "-";
-    if (timeZoneHours >= 0) {
-        sinal = "+";
-    }
-    var minute = convertTimeZineToGMTMinute(timeZoneMinute);
-    var hour = convertTimeZineToGMTHour(timeZoneHours);
-    return dateOffset.substring(0, 19) + sinal + hour + ":" + minute;
 }
 
 function convertTimeZineToGMTMinute(timeZoneMinuteEnd) {
