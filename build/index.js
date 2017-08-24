@@ -5202,23 +5202,25 @@ return ptBr;
 
 /***/ }),
 /* 10 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-module.exports = {
-    convertDateToNewDate: convertDateToNewDate,
-    newDateWithGMT: newDateWithGMT
-};
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 
-var moment = __webpack_require__(0);
+
+/* harmony default export */ __webpack_exports__["default"] = ({ convertDateToNewDate: convertDateToNewDate, newDateWithGMT: newDateWithGMT });
+
 function convertDateToNewDate(date) {
-    var offset = moment(date);
-    var momentDate = moment(date).utcOffset(offset._tzm);
-    return new Date(momentDate.get('year'), momentDate.get('month'), momentDate.get('date'), momentDate.get('hour'), momentDate.get('minute'), momentDate.get('second'));
+    var offset = __WEBPACK_IMPORTED_MODULE_0_moment___default()(date);
+    var momentDate = __WEBPACK_IMPORTED_MODULE_0_moment___default()(date).utcOffset(offset._tzm);
+    return new Date(momentDate.get("year"), momentDate.get("month"), momentDate.get("date"), momentDate.get("hour"), momentDate.get("minute"), momentDate.get("second"));
 }
 
 function applyDayLightSaving(date, offset, localTimeZone) {
     if (localTimeZone.useDaylightSaving) {
-        if (moment(localTimeZone.daylightSavingStartDate).isSameOrBefore(date) && moment(localTimeZone.daylightSavingFinishDate).isSameOrAfter(date)) {
+        if (__WEBPACK_IMPORTED_MODULE_0_moment___default()(localTimeZone.daylightSavingStartDate).isSameOrBefore(date) && __WEBPACK_IMPORTED_MODULE_0_moment___default()(localTimeZone.daylightSavingFinishDate).isSameOrAfter(date)) {
             var offsetDaylightSaving = 60;
             if (localTimeZone.offsetDaylightSaving === 2) {
                 return offset + offsetDaylightSaving;
@@ -5232,7 +5234,7 @@ function applyDayLightSaving(date, offset, localTimeZone) {
 }
 
 function newDateWithGMT(offset, date, localTimeZone) {
-    var dateOffset = moment(date).format();
+    var dateOffset = __WEBPACK_IMPORTED_MODULE_0_moment___default()(date).format();
     if (localTimeZone) {
         offset = applyDayLightSaving(date, offset, localTimeZone);
     }
