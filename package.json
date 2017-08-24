@@ -1,6 +1,6 @@
 {
   "name": "sam-date-handler",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "main": "build/index.js",
   "module": "src/index.js",
