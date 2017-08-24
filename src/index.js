@@ -14,7 +14,7 @@ function applyDayLightSaving(date, offset, localTimeZone) {
     if (localTimeZone.useDaylightSaving) {
         if (moment(localTimeZone.daylightSavingStartDate).isSameOrBefore(date) && moment(localTimeZone.daylightSavingFinishDate).isSameOrAfter(date)) {
             var offsetDaylightSaving = 60;
-            if (timlocalTimeZoneezone.offsetDaylightSaving === 2) {
+            if (localTimeZone.offsetDaylightSaving === 2) {
                 return offset + offsetDaylightSaving;
             }
             if (localTimeZone.offsetDaylightSaving === 1) {

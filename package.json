@@ -2,9 +2,9 @@
   "name": "sam-date-handler",
   "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rdf ./build && mkdir build && npm install && webpack --progress --display-error-details"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,18 @@
   "homepage": "https://github.com/Adailton-Hafemann/sam-date-handler#readme",
   "dependencies": {
     "moment": "^2.18.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "jshint": "^2.9.5",
+    "jshint-loader": "^0.8.4",
+    "webpack": "^3.5.5"
   }
 }
