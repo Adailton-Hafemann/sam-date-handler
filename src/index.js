@@ -1,18 +1,28 @@
-module.exports = {
-    convertDateToNewDate,
-    newDateWithGMT
-};
+import moment from "moment";
 
-const moment = require("moment");
+export default { convertDateToNewDate, newDateWithGMT };
+
 function convertDateToNewDate(date) {
     var offset = moment(date);
     var momentDate = moment(date).utcOffset(offset._tzm);
-    return new Date(momentDate.get('year'), momentDate.get('month'), momentDate.get('date'), momentDate.get('hour'), momentDate.get('minute'), momentDate.get('second'));
+    return new Date(
+        momentDate.get("year"),
+        momentDate.get("month"),
+        momentDate.get("date"),
+        momentDate.get("hour"),
+        momentDate.get("minute"),
+        momentDate.get("second")
+    );
 }
 
 function applyDayLightSaving(date, offset, localTimeZone) {
     if (localTimeZone.useDaylightSaving) {
-        if (moment(localTimeZone.daylightSavingStartDate).isSameOrBefore(date) && moment(localTimeZone.daylightSavingFinishDate).isSameOrAfter(date)) {
+        if (
+            moment(localTimeZone.daylightSavingStartDate).isSameOrBefore(
+                date
+            ) &&
+            moment(localTimeZone.daylightSavingFinishDate).isSameOrAfter(date)
+        ) {
             var offsetDaylightSaving = 60;
             if (localTimeZone.offsetDaylightSaving === 2) {
                 return offset + offsetDaylightSaving;
@@ -27,11 +37,11 @@ function applyDayLightSaving(date, offset, localTimeZone) {
 
 function newDateWithGMT(offset, date, localTimeZone) {
     var dateOffset = moment(date).format();
-    if (localTimeZone){
+    if (localTimeZone) {
         offset = applyDayLightSaving(date, offset, localTimeZone);
     }
     var timeZoneHours = parseInt(offset / 60);
-    var timeZoneMinute = Math.abs((offset % 60));
+    var timeZoneMinute = Math.abs(offset % 60);
     var sinal = "-";
     if (timeZoneHours >= 0) {
         sinal = "+";
@@ -58,7 +68,7 @@ function convertTimeZineToGMTHour(timeZoneHours) {
         }
     } else {
         if (timeZoneHours > -10) {
-            timeZoneHours = (timeZoneHours * (-1));
+            timeZoneHours = timeZoneHours * -1;
             return "0" + timeZoneHours;
         } else {
             return timeZoneHours;
