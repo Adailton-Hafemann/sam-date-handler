@@ -1,0 +1,23 @@
+{
+  "name": "samDateHandler",
+  "description": "Conversor de data para o GMT desejado",
+  "main": "build/index.js",
+  "authors": [
+    "Adailton Hafemann"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "senior",
+    "sam",
+    "date"
+  ],
+  "homepage": "https://github.com/Adailton-Hafemann/sam-date-handler",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
